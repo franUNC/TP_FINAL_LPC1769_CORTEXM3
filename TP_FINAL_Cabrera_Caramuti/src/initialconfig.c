@@ -2,6 +2,7 @@
 #include "lpc17xx_adc.h"
 #include "lpc17xx_timer.h"
 #include "initialconfig.h"
+#include "macros.h"
 
 
 static void configEINT(void);

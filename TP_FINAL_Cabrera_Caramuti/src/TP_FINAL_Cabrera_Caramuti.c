@@ -10,16 +10,21 @@
 
 #include "LPC17xx.h"
 #include "initialconfig.h"
+#include "loadcell.h"
+#include "macros.h"
 
 
-int ADC0Value = 0;
+uint16_t weight = 0;
+uint16_t tare = 0;
+
 int main(void) {
 
 	initialConfigurations();
 
 
     while(1) {
-
+    	if((weight-tare) > 1000 || (2*weight < tare))//Ver esta condición cuando la tara es relativamente alta respecto a la minima
+    		stop(&tare);
     }
     return 0 ;
 
@@ -27,21 +32,19 @@ int main(void) {
 
 /*
  * START
+ * Abrir el servo y empezar a cargar. Ir controlando la apertura del servo en función del peso actual y el peso final
  */
 void EINT0_IRQHandler(void){
-	LPC_GPIO0->FIOSET |= (START_LED);
-	LPC_GPIO0->FIOCLR |= (STOP_LED);
-	LPC_GPIO0->FIOCLR |= (TARE_LED);
+	start(tare);
 	LPC_SC->EXTINT |= (START_LED);
 }
 
 /*
  * STOP
+ * Cerrar el servo y bajar la tara
  */
 void EINT1_IRQHandler(void){
-	LPC_GPIO0->FIOCLR |= (START_LED);
-	LPC_GPIO0->FIOSET |= (STOP_LED);
-	LPC_GPIO0->FIOCLR |= (TARE_LED);
+	stop(&tare);
 	LPC_SC->EXTINT |= (STOP_LED);
 }
 
@@ -49,16 +52,12 @@ void EINT1_IRQHandler(void){
  * TARE
  */
 void EINT2_IRQHandler(void){
-	LPC_GPIO0->FIOCLR |= (START_LED);
-	LPC_GPIO0->FIOCLR |= (STOP_LED);
-	LPC_GPIO0->FIOSET |= (TARE_LED);
+	tare = getTare(weight);
 	LPC_SC->EXTINT |= (TARE_LED);
-
 }
 
 
 void ADC_IRQHandler(void){
-	ADC0Value = ((LPC_ADC->ADDR0)>>4) & 0xFFF;
-	LPC_ADC->ADGDR &= LPC_ADC->ADGDR;
+	weight = getWeight();
 }
 

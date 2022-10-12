@@ -7,7 +7,7 @@ src/initialconfig.o src/initialconfig.d: ../src/initialconfig.c \
  /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_adc.h \
  /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Drivers/inc/lpc_types.h \
  /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h \
- ../src/initialconfig.h
+ ../src/initialconfig.h ../src/macros.h
 /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/inc/LPC17xx.h:
 /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/inc/core_cm3.h:
 /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/inc/core_cmInstr.h:
@@ -17,3 +17,4 @@ src/initialconfig.o src/initialconfig.d: ../src/initialconfig.c \
 /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Drivers/inc/lpc_types.h:
 /home/francabrera/Desktop/Electrónica\ Digital\ III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h:
 ../src/initialconfig.h:
+../src/macros.h:

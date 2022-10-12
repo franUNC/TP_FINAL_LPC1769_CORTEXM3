@@ -7,19 +7,22 @@ C_SRCS += \
 ../src/TP_FINAL_Cabrera_Caramuti.c \
 ../src/cr_startup_lpc175x_6x.c \
 ../src/crp.c \
-../src/initialconfig.c 
+../src/initialconfig.c \
+../src/loadcell.c 
 
 C_DEPS += \
 ./src/TP_FINAL_Cabrera_Caramuti.d \
 ./src/cr_startup_lpc175x_6x.d \
 ./src/crp.d \
-./src/initialconfig.d 
+./src/initialconfig.d \
+./src/loadcell.d 
 
 OBJS += \
 ./src/TP_FINAL_Cabrera_Caramuti.o \
 ./src/cr_startup_lpc175x_6x.o \
 ./src/crp.o \
-./src/initialconfig.o 
+./src/initialconfig.o \
+./src/loadcell.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -34,7 +37,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/TP_FINAL_Cabrera_Caramuti.d ./src/TP_FINAL_Cabrera_Caramuti.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/initialconfig.d ./src/initialconfig.o
+	-$(RM) ./src/TP_FINAL_Cabrera_Caramuti.d ./src/TP_FINAL_Cabrera_Caramuti.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/initialconfig.d ./src/initialconfig.o ./src/loadcell.d ./src/loadcell.o
 
 .PHONY: clean-src
 

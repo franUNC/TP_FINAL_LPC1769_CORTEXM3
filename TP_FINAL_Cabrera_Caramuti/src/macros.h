@@ -8,6 +8,6 @@
 #define STOP_LED	((1<<1))
 #define TARE_LED	((1<<2))
 
-#define MINWEIGHT 120
+#define MINWEIGHT 100
 
 #endif /* MACROS_H_ */

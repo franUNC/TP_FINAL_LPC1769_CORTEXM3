@@ -68,8 +68,12 @@ void ADC_IRQHandler(void){
 
 
 void TIMER0_IRQHandler(void){
-	uint8_t data[] = {(uint8_t)(weight>>8), (uint8_t)weight , '\n'};
-	UART_Send(LPC_UART1, data, sizeof(data), BLOCKING);
+	char weightToSend[5];
+	sprintf(weightToSend,"%4d\n",weight);
+	UART_Send(LPC_UART1, (uint8_t*)weightToSend, sizeof(weightToSend), BLOCKING);
+	char tareToSend[5];
+	sprintf(tareToSend,"%4d\n",tare);
+	UART_Send(LPC_UART1, (uint8_t*)tareToSend, sizeof(tareToSend), BLOCKING);
 	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT);
 }
 

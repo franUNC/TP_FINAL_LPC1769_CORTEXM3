@@ -11,7 +11,7 @@ uint16_t getWeight(void){
 
 static void blink(void){
 	for(int i=0; i<8; i++){
-		for(int j=0; j<200000; j++);
+		for(int j=0; j<400000; j++);
 		LPC_GPIO0->FIOPIN0 |= (i%2)<<1;
 	}
 	LPC_GPIO0->FIOCLR |= (TARE_LED);

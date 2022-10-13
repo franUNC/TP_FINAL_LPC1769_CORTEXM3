@@ -2,6 +2,7 @@
 #include "lpc17xx_adc.h"
 #include "lpc17xx_timer.h"
 #include "initialconfig.h"
+#include "lpc17xx_uart.h"
 #include "macros.h"
 
 
@@ -9,6 +10,7 @@ static void configEINT(void);
 static void configPIN(void);
 static void configADC(void);
 static void configTIMER(void);
+static void configUART(void);
 
 int initialConfigurations(void){
 
@@ -16,6 +18,7 @@ int initialConfigurations(void){
 	configPIN();
 	configADC();
 	configTIMER();
+	configUART();
 
 	return 0;
 }
@@ -62,7 +65,7 @@ static void configTIMER(void){
 
 	TIM_MATCHCFG_Type configMatch;
 	configMatch.ExtMatchOutputType = TIM_EXTMATCH_TOGGLE;
-	configMatch.IntOnMatch = DISABLE;
+	configMatch.IntOnMatch = ENABLE;
 	configMatch.MatchChannel = 1;
 	configMatch.MatchValue = 9999;
 	configMatch.ResetOnMatch = ENABLE;
@@ -71,7 +74,19 @@ static void configTIMER(void){
 	TIM_ConfigMatch(LPC_TIM0, &configMatch);
 	TIM_Init(LPC_TIM0, TIM_TIMER_MODE, &configTim);
 	TIM_Cmd(LPC_TIM0, ENABLE);
+	NVIC_EnableIRQ(TIMER0_IRQn);
 
 }
 
+static void configUART(void){
+	LPC_PINCON->PINSEL4 |= 2;
 
+	UART_CFG_Type configUART;
+	configUART.Baud_rate = 9600;
+	configUART.Databits = UART_DATABIT_8;
+	configUART.Parity = UART_PARITY_NONE;
+	configUART.Stopbits = UART_STOPBIT_1;
+
+	UART_Init(LPC_UART1, &configUART);
+	UART_TxCmd(LPC_UART1, ENABLE);
+}

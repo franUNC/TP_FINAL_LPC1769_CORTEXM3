@@ -8,7 +8,10 @@
 ===============================================================================
 */
 
+#include "stdio.h"
 #include "LPC17xx.h"
+#include "lpc17xx_uart.h"
+#include "lpc17xx_timer.h"
 #include "initialconfig.h"
 #include "loadcell.h"
 #include "macros.h"
@@ -16,6 +19,7 @@
 
 uint16_t weight = 0;
 uint16_t tare = 0;
+
 
 int main(void) {
 
@@ -59,5 +63,13 @@ void EINT2_IRQHandler(void){
 
 void ADC_IRQHandler(void){
 	weight = getWeight();
+}
+
+
+
+void TIMER0_IRQHandler(void){
+	uint8_t data[] = {(uint8_t)(weight>>8), (uint8_t)weight , '\n'};
+	UART_Send(LPC_UART1, data, sizeof(data), BLOCKING);
+	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT);
 }
 

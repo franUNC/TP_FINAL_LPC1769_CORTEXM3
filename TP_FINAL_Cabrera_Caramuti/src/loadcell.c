@@ -33,7 +33,7 @@ uint16_t getTare(uint16_t weight){
 	return weight;
 }
 
-void start(uint16_t tare){
+void start(uint16_t tare, uint8_t* iterator){
 	LPC_GPIO0->FIOCLR |= (START_LED);
 	LPC_GPIO0->FIOCLR |= (STOP_LED);
 	LPC_GPIO0->FIOCLR |= (TARE_LED);
@@ -42,12 +42,13 @@ void start(uint16_t tare){
 		blink();
 		return;
 	}
-
+	*iterator = 2;
 	LPC_GPIO0->FIOSET |= (START_LED);
 }
 
-void stop(uint16_t* tare){
+void stop(uint16_t* tare, uint8_t* iterator){
 	*tare = 0;
+	*iterator = 0;
 	LPC_GPIO0->FIOCLR |= (START_LED);
 	LPC_GPIO0->FIOSET |= (STOP_LED);
 	LPC_GPIO0->FIOCLR |= (TARE_LED);

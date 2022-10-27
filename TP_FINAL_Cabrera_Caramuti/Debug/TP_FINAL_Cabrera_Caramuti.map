@@ -9,7 +9,7 @@ Archive member included to satisfy reference by file (symbol)
 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
                               /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o) (check_failed)
 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                              ./src/initialconfig.o (TIM_Init)
+                              ./src/TP_FINAL_Cabrera_Caramuti.o (TIM_ClearIntPending)
 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
                               ./src/initialconfig.o (UART_Init)
 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(_cr__main.o)
@@ -303,8 +303,6 @@ Discarded input sections
                 0x0000000000000000       0x50 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_GetIntCaptureStatus
                 0x0000000000000000       0x54 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .text.TIM_ClearIntPending
-                0x0000000000000000       0x4c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_ClearIntCapturePending
                 0x0000000000000000       0x50 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_ConfigStructInit
@@ -313,8 +311,6 @@ Discarded input sections
                 0x0000000000000000       0x70 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_ResetCounter
                 0x0000000000000000       0x44 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .text.TIM_UpdateMatchValue
-                0x0000000000000000       0x54 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_ConfigCapture
                 0x0000000000000000       0x78 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .text.TIM_GetCaptureValue
@@ -651,7 +647,7 @@ END GROUP
                 0x0000000020084000                __top_RamAHB32 = 0x20084000
                 0x0000000020084000                __top_RAM2 = 0x20084000
 
-.text           0x0000000000000000     0x397c
+.text           0x0000000000000000     0x3c0c
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -660,15 +656,15 @@ END GROUP
                 0x00000000000000cc                . = ALIGN (0x4)
                 0x00000000000000cc                __section_table_start = .
                 0x00000000000000cc                __data_section_table = .
-                0x00000000000000cc        0x4 LONG 0x397c LOADADDR (.data)
+                0x00000000000000cc        0x4 LONG 0x3c0c LOADADDR (.data)
                 0x00000000000000d0        0x4 LONG 0x10000000 ADDR (.data)
-                0x00000000000000d4        0x4 LONG 0x8 SIZEOF (.data)
-                0x00000000000000d8        0x4 LONG 0x397c LOADADDR (.data_RAM2)
+                0x00000000000000d4        0x4 LONG 0x14 SIZEOF (.data)
+                0x00000000000000d8        0x4 LONG 0x3c0c LOADADDR (.data_RAM2)
                 0x00000000000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x00000000000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000000e4                __data_section_table_end = .
                 0x00000000000000e4                __bss_section_table = .
-                0x00000000000000e4        0x4 LONG 0x10000008 ADDR (.bss)
+                0x00000000000000e4        0x4 LONG 0x10000014 ADDR (.bss)
                 0x00000000000000e8        0x4 LONG 0x1fc SIZEOF (.bss)
                 0x00000000000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
                 0x00000000000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
@@ -696,7 +692,6 @@ END GROUP
                 0x000000000000021e                PWM1_IRQHandler
                 0x000000000000021e                I2C1_IRQHandler
                 0x000000000000021e                UART1_IRQHandler
-                0x000000000000021e                EINT3_IRQHandler
                 0x000000000000021e                CANActivity_IRQHandler
                 0x000000000000021e                TIMER3_IRQHandler
                 0x000000000000021e                UART0_IRQHandler
@@ -710,7 +705,6 @@ END GROUP
                 0x000000000000021e                RTC_IRQHandler
                 0x000000000000021e                TIMER0_IRQHandler
                 0x000000000000021e                SPI_IRQHandler
-                0x000000000000021e                TIMER1_IRQHandler
                 0x000000000000021e                UART2_IRQHandler
                 0x000000000000021e                SSP1_IRQHandler
                 0x000000000000021e                USB_IRQHandler
@@ -730,293 +724,310 @@ END GROUP
                 0x0000000000000300                PROVIDE (__CRP_WORD_END__ = .)
                 0x0000000000000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
- .text.main     0x0000000000000300       0x60 ./src/TP_FINAL_Cabrera_Caramuti.o
+ .text.main     0x0000000000000300       0x68 ./src/TP_FINAL_Cabrera_Caramuti.o
                 0x0000000000000300                main
  .text.EINT0_IRQHandler
-                0x0000000000000360       0x2c ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000000000360                EINT0_IRQHandler
+                0x0000000000000368       0x30 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000000368                EINT0_IRQHandler
  .text.EINT1_IRQHandler
-                0x000000000000038c       0x3c ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x000000000000038c                EINT1_IRQHandler
+                0x0000000000000398       0x40 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000000398                EINT1_IRQHandler
  .text.EINT2_IRQHandler
-                0x00000000000003c8       0x38 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x00000000000003c8                EINT2_IRQHandler
+                0x00000000000003d8       0x38 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x00000000000003d8                EINT2_IRQHandler
+ .text.EINT3_IRQHandler
+                0x0000000000000410       0x4c ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000000410                EINT3_IRQHandler
  .text.ADC_IRQHandler
-                0x0000000000000400       0x7c ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000000000400                ADC_IRQHandler
+                0x000000000000045c       0x7c ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x000000000000045c                ADC_IRQHandler
  .text.sendData
-                0x000000000000047c       0x88 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x000000000000047c                sendData
- .text.finish   0x0000000000000504       0x24 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000000000504                finish
+                0x00000000000004d8       0x88 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x00000000000004d8                sendData
+ .text.finish   0x0000000000000560       0x2c ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000000560                finish
+ .text.TIMER1_IRQHandler
+                0x000000000000058c       0x70 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x000000000000058c                TIMER1_IRQHandler
  .text.NVIC_EnableIRQ
-                0x0000000000000528       0x30 ./src/initialconfig.o
+                0x00000000000005fc       0x30 ./src/initialconfig.o
  .text.initialConfigurations
-                0x0000000000000558       0x1e ./src/initialconfig.o
-                0x0000000000000558                initialConfigurations
- *fill*         0x0000000000000576        0x2 ff
+                0x000000000000062c       0x26 ./src/initialconfig.o
+                0x000000000000062c                initialConfigurations
+ *fill*         0x0000000000000652        0x2 ff
  .text.configEINT
-                0x0000000000000578       0x90 ./src/initialconfig.o
+                0x0000000000000654       0x90 ./src/initialconfig.o
  .text.configPIN
-                0x0000000000000608       0x3c ./src/initialconfig.o
+                0x00000000000006e4       0x3c ./src/initialconfig.o
  .text.configADC
-                0x0000000000000644       0x60 ./src/initialconfig.o
- .text.configTIMER
-                0x00000000000006a4       0x70 ./src/initialconfig.o
+                0x0000000000000720       0x60 ./src/initialconfig.o
+ .text.configTIMER0
+                0x0000000000000780       0x70 ./src/initialconfig.o
+ .text.configTIMER1
+                0x00000000000007f0       0x84 ./src/initialconfig.o
  .text.configUART
-                0x0000000000000714       0x48 ./src/initialconfig.o
+                0x0000000000000874       0x48 ./src/initialconfig.o
+ .text.configGPIOInt
+                0x00000000000008bc       0x7c ./src/initialconfig.o
  .text.getWeight
-                0x000000000000075c       0x3c ./src/loadcell.o
-                0x000000000000075c                getWeight
- .text.blink    0x0000000000000798       0x84 ./src/loadcell.o
- .text.getTare  0x000000000000081c       0x58 ./src/loadcell.o
-                0x000000000000081c                getTare
- .text.start    0x0000000000000874       0x50 ./src/loadcell.o
-                0x0000000000000874                start
- .text.stop     0x00000000000008c4       0x40 ./src/loadcell.o
-                0x00000000000008c4                stop
+                0x0000000000000938       0x3c ./src/loadcell.o
+                0x0000000000000938                getWeight
+ .text.blink    0x0000000000000974       0x84 ./src/loadcell.o
+ .text.getTare  0x00000000000009f8       0x58 ./src/loadcell.o
+                0x00000000000009f8                getTare
+ .text.start    0x0000000000000a50       0x58 ./src/loadcell.o
+                0x0000000000000a50                start
+ .text.stop     0x0000000000000aa8       0x48 ./src/loadcell.o
+                0x0000000000000aa8                stop
  .text.SystemInit
-                0x0000000000000904       0xd8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x0000000000000904                SystemInit
+                0x0000000000000af0       0xd8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000000000000af0                SystemInit
  .text.ADC_Init
-                0x00000000000009dc       0x58 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x00000000000009dc                ADC_Init
+                0x0000000000000bc8       0x58 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000bc8                ADC_Init
  .text.ADC_StartCmd
-                0x0000000000000a34       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x0000000000000a34                ADC_StartCmd
+                0x0000000000000c20       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000c20                ADC_StartCmd
  .text.ADC_EdgeStartConfig
-                0x0000000000000a70       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x0000000000000a70                ADC_EdgeStartConfig
+                0x0000000000000c5c       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000c5c                ADC_EdgeStartConfig
  .text.ADC_IntConfig
-                0x0000000000000aac       0x44 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x0000000000000aac                ADC_IntConfig
+                0x0000000000000c98       0x44 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000c98                ADC_IntConfig
  .text.ADC_ChannelCmd
-                0x0000000000000af0       0x34 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x0000000000000af0                ADC_ChannelCmd
+                0x0000000000000cdc       0x34 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000cdc                ADC_ChannelCmd
  .text.CLKPWR_SetPCLKDiv
-                0x0000000000000b24       0x4c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000b24                CLKPWR_SetPCLKDiv
+                0x0000000000000d10       0x4c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000d10                CLKPWR_SetPCLKDiv
  .text.CLKPWR_GetPCLKSEL
-                0x0000000000000b70       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000b70                CLKPWR_GetPCLKSEL
+                0x0000000000000d5c       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000d5c                CLKPWR_GetPCLKSEL
  .text.CLKPWR_GetPCLK
-                0x0000000000000b90       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000b90                CLKPWR_GetPCLK
+                0x0000000000000d7c       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000d7c                CLKPWR_GetPCLK
  .text.CLKPWR_ConfigPPWR
-                0x0000000000000bb0       0x34 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000bb0                CLKPWR_ConfigPPWR
+                0x0000000000000d9c       0x34 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000d9c                CLKPWR_ConfigPPWR
  .text.check_failed
-                0x0000000000000be4        0x2 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
-                0x0000000000000be4                check_failed
- *fill*         0x0000000000000be6        0x2 ff
+                0x0000000000000dd0        0x2 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000dd0                check_failed
+ *fill*         0x0000000000000dd2        0x2 ff
+ .text.TIM_ClearIntPending
+                0x0000000000000dd4       0x4c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000dd4                TIM_ClearIntPending
  .text.TIM_Init
-                0x0000000000000be8      0x15c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000be8                TIM_Init
- .text.TIM_Cmd  0x0000000000000d44       0x48 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000d44                TIM_Cmd
+                0x0000000000000e20      0x15c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000e20                TIM_Init
+ .text.TIM_Cmd  0x0000000000000f7c       0x48 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000f7c                TIM_Cmd
  .text.TIM_ConfigMatch
-                0x0000000000000d8c       0xcc /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000d8c                TIM_ConfigMatch
+                0x0000000000000fc4       0xcc /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000fc4                TIM_ConfigMatch
+ .text.TIM_UpdateMatchValue
+                0x0000000000001090       0x54 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000001090                TIM_UpdateMatchValue
  .text.UART_Init
-                0x0000000000000e58      0x28c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
-                0x0000000000000e58                UART_Init
+                0x00000000000010e4      0x28c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x00000000000010e4                UART_Init
  .text.UART_SendByte
-                0x00000000000010e4       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
-                0x00000000000010e4                UART_SendByte
+                0x0000000000001370       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x0000000000001370                UART_SendByte
  .text.UART_Send
-                0x0000000000001120       0x84 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
-                0x0000000000001120                UART_Send
+                0x00000000000013ac       0x84 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x00000000000013ac                UART_Send
  .text.UART_TxCmd
-                0x00000000000011a4       0x60 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
-                0x00000000000011a4                UART_TxCmd
- .text.__main   0x0000000000001204        0xe /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(_cr__main.o)
-                0x0000000000001204                __main
+                0x0000000000001430       0x60 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x0000000000001430                UART_TxCmd
+ .text.__main   0x0000000000001490        0xe /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(_cr__main.o)
+                0x0000000000001490                __main
  .text.fp_round
-                0x0000000000001212       0x4c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
+                0x000000000000149e       0x4c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
  .text.pr_dec.constprop.0
-                0x000000000000125e       0x26 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
- .text.sprintf  0x0000000000001284       0x6c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
-                0x0000000000001284                sprintf
+                0x00000000000014ea       0x26 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
+ .text.sprintf  0x0000000000001510       0x6c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
+                0x0000000000001510                sprintf
+ *fill*         0x000000000000157c        0x4 ff
  .text.fp_display
-                0x00000000000012f0      0x950 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
- .text._initio  0x0000000000001c40       0x78 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(initio.o)
-                0x0000000000001c40                _initio
+                0x0000000000001580      0x950 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
+ .text._initio  0x0000000000001ed0       0x78 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(initio.o)
+                0x0000000000001ed0                _initio
  .text.__vfprintf
-                0x0000000000001cb8      0xbe4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(printf.o)
-                0x0000000000001cb8                __vfprintf
- .text.setvbuf  0x000000000000289c       0x3e /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(setvbuf.o)
-                0x000000000000289c                setvbuf
- .text.strlen   0x00000000000028da       0x48 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(strlen.o)
-                0x00000000000028da                strlen
- .text.memset   0x0000000000002922        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memset.o)
-                0x0000000000002922                memset
+                0x0000000000001f48      0xbe4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(printf.o)
+                0x0000000000001f48                __vfprintf
+ .text.setvbuf  0x0000000000002b2c       0x3e /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(setvbuf.o)
+                0x0000000000002b2c                setvbuf
+ .text.strlen   0x0000000000002b6a       0x48 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(strlen.o)
+                0x0000000000002b6a                strlen
+ .text.memset   0x0000000000002bb2        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memset.o)
+                0x0000000000002bb2                memset
  .text._deferredlazyseek
-                0x0000000000002926       0x40 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_deferredlazyseek.o)
-                0x0000000000002926                _deferredlazyseek
+                0x0000000000002bb6       0x40 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_deferredlazyseek.o)
+                0x0000000000002bb6                _deferredlazyseek
  .text.__flsbuf
-                0x0000000000002966      0x140 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_deferredlazyseek.o)
-                0x0000000000002966                __flsbuf
- .text._fdopen  0x0000000000002aa6       0x68 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_fdopen.o)
-                0x0000000000002aa6                _fdopen
- .text._fflush  0x0000000000002b0e       0x52 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_fflush.o)
-                0x0000000000002b0e                _fflush
- .text._frexpl  0x0000000000002b60       0x56 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_frexpl.o)
-                0x0000000000002b60                _frexpl
- *fill*         0x0000000000002bb6        0x2 ff
- .text._ldexpl  0x0000000000002bb8       0x48 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_ldexpl.o)
-                0x0000000000002bb8                _ldexpl
+                0x0000000000002bf6      0x140 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_deferredlazyseek.o)
+                0x0000000000002bf6                __flsbuf
+ .text._fdopen  0x0000000000002d36       0x68 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_fdopen.o)
+                0x0000000000002d36                _fdopen
+ .text._fflush  0x0000000000002d9e       0x52 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_fflush.o)
+                0x0000000000002d9e                _fflush
+ .text._frexpl  0x0000000000002df0       0x56 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_frexpl.o)
+                0x0000000000002df0                _frexpl
+ *fill*         0x0000000000002e46        0x2 ff
+ .text._ldexpl  0x0000000000002e48       0x48 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_ldexpl.o)
+                0x0000000000002e48                _ldexpl
  .text._Cwritebuf
-                0x0000000000002c00       0x6c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_writebuf.o)
-                0x0000000000002c00                _Cwritebuf
- .text.malloc   0x0000000000002c6c       0xc8 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
-                0x0000000000002c6c                malloc
- .text.free     0x0000000000002d34       0x30 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
-                0x0000000000002d34                free
+                0x0000000000002e90       0x6c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_writebuf.o)
+                0x0000000000002e90                _Cwritebuf
+ .text.malloc   0x0000000000002efc       0xc8 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
+                0x0000000000002efc                malloc
+ .text.free     0x0000000000002fc4       0x30 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
+                0x0000000000002fc4                free
  .text._Csys_alloc
-                0x0000000000002d64       0x20 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
-                0x0000000000002d64                _Csys_alloc
- .text.fclose   0x0000000000002d84       0x58 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fclose.o)
-                0x0000000000002d84                fclose
- .text.fflush   0x0000000000002ddc       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fflush.o)
-                0x0000000000002ddc                fflush
- .text.fseek    0x0000000000002e18       0xfc /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fseek.o)
-                0x0000000000002e18                fseek
- .text.ftell    0x0000000000002f14       0x44 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(ftell.o)
-                0x0000000000002f14                ftell
- .text.remove   0x0000000000002f58       0x14 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(remove.o)
-                0x0000000000002f58                remove
- .text._sbrk    0x0000000000002f6c       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_cr_sbrk.o)
-                0x0000000000002f6c                _sbrk
+                0x0000000000002ff4       0x20 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
+                0x0000000000002ff4                _Csys_alloc
+ .text.fclose   0x0000000000003014       0x58 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fclose.o)
+                0x0000000000003014                fclose
+ .text.fflush   0x000000000000306c       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fflush.o)
+                0x000000000000306c                fflush
+ .text.fseek    0x00000000000030a8       0xfc /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fseek.o)
+                0x00000000000030a8                fseek
+ .text.ftell    0x00000000000031a4       0x44 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(ftell.o)
+                0x00000000000031a4                ftell
+ .text.remove   0x00000000000031e8       0x14 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(remove.o)
+                0x00000000000031e8                remove
+ .text._sbrk    0x00000000000031fc       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_cr_sbrk.o)
+                0x00000000000031fc                _sbrk
  .text._do_fflush
-                0x0000000000002fa8       0x40 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_do_fflush.o)
-                0x0000000000002fa8                _do_fflush
+                0x0000000000003238       0x40 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_do_fflush.o)
+                0x0000000000003238                _do_fflush
  .text.__check_heap_overflow
-                0x0000000000002fe8       0x14 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_cr_check_heap.o)
-                0x0000000000002fe8                __check_heap_overflow
+                0x0000000000003278       0x14 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_cr_check_heap.o)
+                0x0000000000003278                __check_heap_overflow
  .text.__aeabi_division_uldivmod
-                0x0000000000002ffc      0x174 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_64.o)
-                0x0000000000002ffc                __aeabi_uldivmod
-                0x0000000000003000                __bhs_ldivmod1
+                0x000000000000328c      0x174 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_64.o)
+                0x000000000000328c                __aeabi_uldivmod
+                0x0000000000003290                __bhs_ldivmod1
  .text.__aeabi_division_idiv0
-                0x0000000000003170        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
-                0x0000000000003170                __aeabi_idiv0
- *fill*         0x0000000000003172        0x2 ff
+                0x0000000000003400        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
+                0x0000000000003400                __aeabi_idiv0
+ *fill*         0x0000000000003402        0x2 ff
  .text.__aeabi_dmul
-                0x0000000000003174       0xfc /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x0000000000003174                __aeabi_dmul
+                0x0000000000003404       0xfc /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003404                __aeabi_dmul
  .text.__aeabi_ddiv
-                0x0000000000003270      0x134 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x0000000000003270                __aeabi_ddiv
+                0x0000000000003500      0x134 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003500                __aeabi_ddiv
  .text.__aeabi_dsub
-                0x00000000000033a4      0x1ac /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x00000000000033a4                __aeabi_dsub
+                0x0000000000003634      0x1ac /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003634                __aeabi_dsub
  .text.__aeabi_dadd
-                0x0000000000003550      0x110 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x0000000000003550                __aeabi_dadd
+                0x00000000000037e0      0x110 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x00000000000037e0                __aeabi_dadd
  .text.__aeabi_d2iz
-                0x0000000000003660       0x42 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x0000000000003660                __aeabi_d2iz
+                0x00000000000038f0       0x42 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x00000000000038f0                __aeabi_d2iz
  .text.__bhs_ui2d
-                0x00000000000036a2       0x46 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x00000000000036a2                __bhs_ui2d
+                0x0000000000003932       0x46 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003932                __bhs_ui2d
  .text.__aeabi_i2d
-                0x00000000000036e8       0x12 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x00000000000036e8                __aeabi_i2d
+                0x0000000000003978       0x12 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003978                __aeabi_i2d
  .text.__aeabi_dcmpeq
-                0x00000000000036fa       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x00000000000036fa                __aeabi_dcmpeq
+                0x000000000000398a       0x3c /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x000000000000398a                __aeabi_dcmpeq
  .text.__aeabi_dcmplt
-                0x0000000000003736       0x58 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x0000000000003736                __aeabi_dcmplt
+                0x00000000000039c6       0x58 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x00000000000039c6                __aeabi_dcmplt
  .text.__aeabi_dcmple
-                0x000000000000378e       0x62 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x000000000000378e                __aeabi_dcmple
+                0x0000000000003a1e       0x62 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003a1e                __aeabi_dcmple
  .text.__aeabi_dcmpge
-                0x00000000000037f0       0x62 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
-                0x00000000000037f0                __aeabi_dcmpge
+                0x0000000000003a80       0x62 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(double.o)
+                0x0000000000003a80                __aeabi_dcmpge
  .text.__aeabi_memset_lowlevel
-                0x0000000000003852       0x32 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(memcpy.o)
-                0x0000000000003852                __aeabi_lowlevel_memset
+                0x0000000000003ae2       0x32 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(memcpy.o)
+                0x0000000000003ae2                __aeabi_lowlevel_memset
  .text.__sys_appexit
-                0x0000000000003884        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_appexit.o)
-                0x0000000000003884                __exit
-                0x0000000000003884                __sys_appexit
+                0x0000000000003b14        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_appexit.o)
+                0x0000000000003b14                __exit
+                0x0000000000003b14                __sys_appexit
  .text.__sys_close
-                0x0000000000003886        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_close.o)
-                0x0000000000003886                __sys_close
+                0x0000000000003b16        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_close.o)
+                0x0000000000003b16                __sys_close
  .text.__sys_flen
-                0x000000000000388c        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_flen.o)
-                0x000000000000388c                __sys_flen
+                0x0000000000003b1c        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_flen.o)
+                0x0000000000003b1c                __sys_flen
  .text.__sys_istty
-                0x0000000000003892        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_istty.o)
-                0x0000000000003892                __sys_istty
+                0x0000000000003b22        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_istty.o)
+                0x0000000000003b22                __sys_istty
  .text.__sys_remove
-                0x0000000000003898        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_remove.o)
-                0x0000000000003898                __sys_remove
+                0x0000000000003b28        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_remove.o)
+                0x0000000000003b28                __sys_remove
  .text.__sys_seek
-                0x000000000000389e        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_seek.o)
-                0x000000000000389e                __sys_seek
+                0x0000000000003b2e        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_seek.o)
+                0x0000000000003b2e                __sys_seek
  .text.__sys_tmpnam
-                0x00000000000038a4        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_tmpnam.o)
-                0x00000000000038a4                __sys_tmpnam
+                0x0000000000003b34        0x6 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_tmpnam.o)
+                0x0000000000003b34                __sys_tmpnam
  .text.__sys_write
-                0x00000000000038aa        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_write.o)
-                0x00000000000038aa                __sys_write
+                0x0000000000003b3a        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_write.o)
+                0x0000000000003b3a                __sys_write
  *(.rodata .rodata.* .constdata .constdata.*)
- *fill*         0x00000000000038ae        0x2 ff
+ *fill*         0x0000000000003b3e        0x2 ff
  .rodata.sendData.str1.4
-                0x00000000000038b0       0x16 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000003b40       0x16 ./src/TP_FINAL_Cabrera_Caramuti.o
  .rodata.ADC_Init.str1.1
-                0x00000000000038c6        0xe /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000003b56        0xe /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
  .rodata.CSWTCH.5
-                0x00000000000038d4        0x4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000003b64        0x4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
  .rodata.TIM_GetIntStatus.str1.1
-                0x00000000000038d8       0x10 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000003b68       0x10 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .rodata.UART_Init.str1.1
-                0x00000000000038e8        0xf /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x0000000000003b78        0xf /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
  .rodata.fp_display.str1.1
-                0x00000000000038f7       0x34 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
+                0x0000000000003b87       0x34 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(fpprintf.o)
                                          0x35 (size before relaxing)
  .rodata._initio.str1.1
-                0x000000000000392b        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(initio.o)
+                0x0000000000003bbb        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(initio.o)
  .rodata.__vfprintf.str1.1
-                0x000000000000392f       0x31 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(printf.o)
+                0x0000000000003bbf       0x31 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(printf.o)
                                          0x38 (size before relaxing)
  .rodata._Csys_alloc.str1.1
-                0x0000000000003960       0x18 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
+                0x0000000000003bf0       0x18 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
  .rodata.__num_Ciob_streams
-                0x0000000000003978        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__ciob.o)
-                0x0000000000003978                __num_Ciob_streams
-                0x000000000000397c                . = ALIGN (0x4)
+                0x0000000000003c08        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__ciob.o)
+                0x0000000000003c08                __num_Ciob_streams
+                0x0000000000003c0c                . = ALIGN (0x4)
 
-.glue_7         0x000000000000397c        0x0
- .glue_7        0x000000000000397c        0x0 linker stubs
+.glue_7         0x0000000000003c0c        0x0
+ .glue_7        0x0000000000003c0c        0x0 linker stubs
 
-.glue_7t        0x000000000000397c        0x0
- .glue_7t       0x000000000000397c        0x0 linker stubs
+.glue_7t        0x0000000000003c0c        0x0
+ .glue_7t       0x0000000000003c0c        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000397c        0x0
- .vfp11_veneer  0x000000000000397c        0x0 linker stubs
+.vfp11_veneer   0x0000000000003c0c        0x0
+ .vfp11_veneer  0x0000000000003c0c        0x0 linker stubs
 
-.v4_bx          0x000000000000397c        0x0
- .v4_bx         0x000000000000397c        0x0 linker stubs
+.v4_bx          0x0000000000003c0c        0x0
+ .v4_bx         0x0000000000003c0c        0x0 linker stubs
 
-.iplt           0x000000000000397c        0x0
- .iplt          0x000000000000397c        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
+.iplt           0x0000000000003c0c        0x0
+ .iplt          0x0000000000003c0c        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
 
-.rel.dyn        0x000000000000397c        0x0
- .rel.iplt      0x000000000000397c        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
+.rel.dyn        0x0000000000003c0c        0x0
+ .rel.iplt      0x0000000000003c0c        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x000000000000397c        0x0
-                0x000000000000397c                __exidx_start = .
+.ARM.exidx      0x0000000000003c0c        0x0
+                0x0000000000003c0c                __exidx_start = .
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000000000000397c                __exidx_end = .
-                0x000000000000397c                _etext = .
+                0x0000000000003c0c                __exidx_end = .
+                0x0000000000003c0c                _etext = .
 
-.data_RAM2      0x000000002007c000        0x0 load address 0x000000000000397c
+.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000003c0c
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
                 [!provide]                        PROVIDE (__start_data_RamAHB32 = .)
@@ -1037,7 +1048,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000        0x8 load address 0x000000000000397c
+.data           0x0000000010000000       0x14 load address 0x0000000000003c0c
  FILL mask 0xff
                 0x0000000010000000                _data = .
                 [!provide]                        PROVIDE (__start_data_RAM = .)
@@ -1051,16 +1062,19 @@ END GROUP
  .data.level    0x0000000010000000        0x1 ./src/TP_FINAL_Cabrera_Caramuti.o
                 0x0000000010000000                level
  *fill*         0x0000000010000001        0x3 ff
+ .data.duty_cycle
+                0x0000000010000004        0xc ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000004                duty_cycle
  .data.SystemCoreClock
-                0x0000000010000004        0x4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x0000000010000004                SystemCoreClock
-                0x0000000010000008                . = ALIGN (0x4)
-                0x0000000010000008                _edata = .
+                0x0000000010000010        0x4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000000010000010                SystemCoreClock
+                0x0000000010000014                . = ALIGN (0x4)
+                0x0000000010000014                _edata = .
                 [!provide]                        PROVIDE (__end_data_RAM = .)
                 [!provide]                        PROVIDE (__end_data_RamLoc32 = .)
 
-.igot.plt       0x0000000010000008        0x0 load address 0x0000000000003984
- .igot.plt      0x0000000010000008        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
+.igot.plt       0x0000000010000014        0x0 load address 0x0000000000003c20
+ .igot.plt      0x0000000010000014        0x0 ./src/TP_FINAL_Cabrera_Caramuti.o
 
 .bss_RAM2       0x000000002007c000        0x0
                 [!provide]                        PROVIDE (__start_bss_RAM2 = .)
@@ -1073,33 +1087,34 @@ END GROUP
                 [!provide]                        PROVIDE (__end_bss_RAM2 = .)
                 [!provide]                        PROVIDE (__end_bss_RamAHB32 = .)
 
-.bss            0x0000000010000008      0x1fc
-                0x0000000010000008                _bss = .
+.bss            0x0000000010000014      0x1fc
+                0x0000000010000014                _bss = .
                 [!provide]                        PROVIDE (__start_bss_RAM = .)
                 [!provide]                        PROVIDE (__start_bss_RamLoc32 = .)
  *(.bss*)
- .bss.weight    0x0000000010000008        0x2 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000010000008                weight
- *fill*         0x000000001000000a        0x2 
- .bss.array     0x000000001000000c        0x8 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x000000001000000c                array
- .bss.tare      0x0000000010000014        0x2 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000010000014                tare
- .bss.counter   0x0000000010000016        0x1 ./src/TP_FINAL_Cabrera_Caramuti.o
-                0x0000000010000016                counter
- *fill*         0x0000000010000017        0x1 
- .bss.errno     0x0000000010000018        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(errno.o)
-                0x0000000010000018                errno
+ .bss.weight    0x0000000010000014        0x2 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000014                weight
+ *fill*         0x0000000010000016        0x2 
+ .bss.array     0x0000000010000018        0x8 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000018                array
+ .bss.tare      0x0000000010000020        0x2 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000020                tare
+ .bss.iterator  0x0000000010000022        0x1 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000022                iterator
+ .bss.counter   0x0000000010000023        0x1 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000010000023                counter
+ .bss.errno     0x0000000010000024        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(errno.o)
+                0x0000000010000024                errno
  .bss.__end_of_heap
-                0x000000001000001c        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__init_alloc.o)
-                0x000000001000001c                __end_of_heap
- .bss.__heaps   0x0000000010000020        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__init_alloc.o)
-                0x0000000010000020                __heaps
- .bss.__Ciob    0x0000000010000024      0x1e0 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__ciob.o)
-                0x0000000010000024                __Ciob
+                0x0000000010000028        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__init_alloc.o)
+                0x0000000010000028                __end_of_heap
+ .bss.__heaps   0x000000001000002c        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__init_alloc.o)
+                0x000000001000002c                __heaps
+ .bss.__Ciob    0x0000000010000030      0x1e0 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__ciob.o)
+                0x0000000010000030                __Ciob
  *(COMMON)
-                0x0000000010000204                . = ALIGN (0x4)
-                0x0000000010000204                _ebss = .
+                0x0000000010000210                . = ALIGN (0x4)
+                0x0000000010000210                _ebss = .
                 [!provide]                        PROVIDE (__end_bss_RAM = .)
                 [!provide]                        PROVIDE (__end_bss_RamLoc32 = .)
                 [!provide]                        PROVIDE (end = .)
@@ -1115,85 +1130,85 @@ END GROUP
                 [!provide]                        PROVIDE (__end_noinit_RAM2 = .)
                 [!provide]                        PROVIDE (__end_noinit_RamAHB32 = .)
 
-.noinit         0x0000000010000204        0x0
-                0x0000000010000204                _noinit = .
+.noinit         0x0000000010000210        0x0
+                0x0000000010000210                _noinit = .
                 [!provide]                        PROVIDE (__start_noinit_RAM = .)
                 [!provide]                        PROVIDE (__start_noinit_RamLoc32 = .)
  *(.noinit*)
-                0x0000000010000204                . = ALIGN (0x4)
-                0x0000000010000204                _end_noinit = .
+                0x0000000010000210                . = ALIGN (0x4)
+                0x0000000010000210                _end_noinit = .
                 [!provide]                        PROVIDE (__end_noinit_RAM = .)
                 [!provide]                        PROVIDE (__end_noinit_RamLoc32 = .)
-                0x0000000010000204                PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x0000000010000210                PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffffefff74c6                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
                 0x0000000000000000                _image_start = LOADADDR (.text)
-                0x0000000000003984                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000000000003984                _image_size = (_image_end - _image_start)
+                0x0000000000003c20                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000000000003c20                _image_size = (_image_end - _image_start)
 OUTPUT(TP_FINAL_Cabrera_Caramuti.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000     0x5d09
- .debug_info    0x0000000000000000      0x776 ./src/TP_FINAL_Cabrera_Caramuti.o
- .debug_info    0x0000000000000776      0x27f ./src/cr_startup_lpc175x_6x.o
- .debug_info    0x00000000000009f5       0x40 ./src/crp.o
- .debug_info    0x0000000000000a35     0x10c9 ./src/initialconfig.o
- .debug_info    0x0000000000001afe      0x546 ./src/loadcell.o
- .debug_info    0x0000000000002044      0x347 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_info    0x000000000000238b      0x8f0 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_info    0x0000000000002c7b      0x6ca /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_info    0x0000000000003345       0xd4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_info    0x0000000000003419      0xc54 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .debug_info    0x000000000000406d     0x1c9c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+.debug_info     0x0000000000000000     0x624f
+ .debug_info    0x0000000000000000      0xb91 ./src/TP_FINAL_Cabrera_Caramuti.o
+ .debug_info    0x0000000000000b91      0x27f ./src/cr_startup_lpc175x_6x.o
+ .debug_info    0x0000000000000e10       0x40 ./src/crp.o
+ .debug_info    0x0000000000000e50     0x11d0 ./src/initialconfig.o
+ .debug_info    0x0000000000002020      0x56a ./src/loadcell.o
+ .debug_info    0x000000000000258a      0x347 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x00000000000028d1      0x8f0 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_info    0x00000000000031c1      0x6ca /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_info    0x000000000000388b       0xd4 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_info    0x000000000000395f      0xc54 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_info    0x00000000000045b3     0x1c9c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
-.debug_abbrev   0x0000000000000000     0x125d
- .debug_abbrev  0x0000000000000000      0x1c0 ./src/TP_FINAL_Cabrera_Caramuti.o
- .debug_abbrev  0x00000000000001c0      0x122 ./src/cr_startup_lpc175x_6x.o
- .debug_abbrev  0x00000000000002e2       0x38 ./src/crp.o
- .debug_abbrev  0x000000000000031a      0x23e ./src/initialconfig.o
- .debug_abbrev  0x0000000000000558      0x1aa ./src/loadcell.o
- .debug_abbrev  0x0000000000000702      0x10e /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_abbrev  0x0000000000000810      0x1bb /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_abbrev  0x00000000000009cb      0x1f1 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_abbrev  0x0000000000000bbc       0x75 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_abbrev  0x0000000000000c31      0x2c8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .debug_abbrev  0x0000000000000ef9      0x364 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+.debug_abbrev   0x0000000000000000     0x12ab
+ .debug_abbrev  0x0000000000000000      0x20e ./src/TP_FINAL_Cabrera_Caramuti.o
+ .debug_abbrev  0x000000000000020e      0x122 ./src/cr_startup_lpc175x_6x.o
+ .debug_abbrev  0x0000000000000330       0x38 ./src/crp.o
+ .debug_abbrev  0x0000000000000368      0x23e ./src/initialconfig.o
+ .debug_abbrev  0x00000000000005a6      0x1aa ./src/loadcell.o
+ .debug_abbrev  0x0000000000000750      0x10e /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_abbrev  0x000000000000085e      0x1bb /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_abbrev  0x0000000000000a19      0x1f1 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_abbrev  0x0000000000000c0a       0x75 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_abbrev  0x0000000000000c7f      0x2c8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_abbrev  0x0000000000000f47      0x364 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
-.debug_aranges  0x0000000000000000      0x410
+.debug_aranges  0x0000000000000000      0x430
  .debug_aranges
-                0x0000000000000000       0x50 ./src/TP_FINAL_Cabrera_Caramuti.o
+                0x0000000000000000       0x60 ./src/TP_FINAL_Cabrera_Caramuti.o
  .debug_aranges
-                0x0000000000000050       0x80 ./src/cr_startup_lpc175x_6x.o
+                0x0000000000000060       0x80 ./src/cr_startup_lpc175x_6x.o
  .debug_aranges
-                0x00000000000000d0       0x18 ./src/crp.o
+                0x00000000000000e0       0x18 ./src/crp.o
  .debug_aranges
-                0x00000000000000e8       0x50 ./src/initialconfig.o
+                0x00000000000000f8       0x60 ./src/initialconfig.o
  .debug_aranges
-                0x0000000000000138       0x40 ./src/loadcell.o
+                0x0000000000000158       0x40 ./src/loadcell.o
  .debug_aranges
-                0x0000000000000178       0x28 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000000000000198       0x28 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .debug_aranges
-                0x00000000000001a0       0x80 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x00000000000001c0       0x80 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
  .debug_aranges
-                0x0000000000000220       0x58 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000240       0x58 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
  .debug_aranges
-                0x0000000000000278       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000298       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
  .debug_aranges
-                0x0000000000000298       0x80 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x00000000000002b8       0x80 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .debug_aranges
-                0x0000000000000318       0xf8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+                0x0000000000000338       0xf8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
-.debug_ranges   0x0000000000000000      0x418
- .debug_ranges  0x0000000000000000       0x40 ./src/TP_FINAL_Cabrera_Caramuti.o
- .debug_ranges  0x0000000000000040       0x70 ./src/cr_startup_lpc175x_6x.o
- .debug_ranges  0x00000000000000b0       0x40 ./src/initialconfig.o
- .debug_ranges  0x00000000000000f0       0x30 ./src/loadcell.o
- .debug_ranges  0x0000000000000120       0x18 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_ranges  0x0000000000000138       0x70 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_ranges  0x00000000000001a8       0x48 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_ranges  0x00000000000001f0       0x10 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_ranges  0x0000000000000200       0xe8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .debug_ranges  0x00000000000002e8      0x130 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+.debug_ranges   0x0000000000000000      0x438
+ .debug_ranges  0x0000000000000000       0x50 ./src/TP_FINAL_Cabrera_Caramuti.o
+ .debug_ranges  0x0000000000000050       0x70 ./src/cr_startup_lpc175x_6x.o
+ .debug_ranges  0x00000000000000c0       0x50 ./src/initialconfig.o
+ .debug_ranges  0x0000000000000110       0x30 ./src/loadcell.o
+ .debug_ranges  0x0000000000000140       0x18 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_ranges  0x0000000000000158       0x70 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_ranges  0x00000000000001c8       0x48 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_ranges  0x0000000000000210       0x10 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_ranges  0x0000000000000220       0xe8 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_ranges  0x0000000000000308      0x130 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
 .debug_macro    0x0000000000000000     0x4109
  .debug_macro   0x0000000000000000       0xc6 ./src/TP_FINAL_Cabrera_Caramuti.o
@@ -1234,41 +1249,41 @@ LOAD linker stubs
  .debug_macro   0x0000000000003f25      0x145 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
  .debug_macro   0x000000000000406a       0x9f /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
-.debug_line     0x0000000000000000     0x3aa7
- .debug_line    0x0000000000000000      0x444 ./src/TP_FINAL_Cabrera_Caramuti.o
- .debug_line    0x0000000000000444      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x00000000000005a4       0xb5 ./src/crp.o
- .debug_line    0x0000000000000659      0x410 ./src/initialconfig.o
- .debug_line    0x0000000000000a69      0x325 ./src/loadcell.o
- .debug_line    0x0000000000000d8e      0x43c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_line    0x00000000000011ca      0x6b2 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_line    0x000000000000187c      0x483 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_line    0x0000000000001cff      0x23d /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_line    0x0000000000001f3c      0x963 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .debug_line    0x000000000000289f     0x1208 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+.debug_line     0x0000000000000000     0x3b87
+ .debug_line    0x0000000000000000      0x4aa ./src/TP_FINAL_Cabrera_Caramuti.o
+ .debug_line    0x00000000000004aa      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x000000000000060a       0xb5 ./src/crp.o
+ .debug_line    0x00000000000006bf      0x484 ./src/initialconfig.o
+ .debug_line    0x0000000000000b43      0x32b ./src/loadcell.o
+ .debug_line    0x0000000000000e6e      0x43c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x00000000000012aa      0x6b2 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_line    0x000000000000195c      0x483 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_line    0x0000000000001ddf      0x23d /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_line    0x000000000000201c      0x963 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_line    0x000000000000297f     0x1208 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
-.debug_str      0x0000000000000000     0xe819
- .debug_str     0x0000000000000000     0xaa14 ./src/TP_FINAL_Cabrera_Caramuti.o
-                                       0xaaad (size before relaxing)
- .debug_str     0x000000000000aa14      0x1c2 ./src/cr_startup_lpc175x_6x.o
+.debug_str      0x0000000000000000     0xe8fe
+ .debug_str     0x0000000000000000     0xac3e ./src/TP_FINAL_Cabrera_Caramuti.o
+                                       0xace1 (size before relaxing)
+ .debug_str     0x000000000000ac3e      0x1c2 ./src/cr_startup_lpc175x_6x.o
                                        0x2eec (size before relaxing)
- .debug_str     0x000000000000abd6       0xe9 ./src/crp.o
+ .debug_str     0x000000000000ae00       0xe9 ./src/crp.o
                                        0x2e0d (size before relaxing)
- .debug_str     0x000000000000acbf     0x1017 ./src/initialconfig.o
-                                       0xb7a2 (size before relaxing)
- .debug_str     0x000000000000bcd6       0x2f ./src/loadcell.o
-                                       0x871d (size before relaxing)
- .debug_str     0x000000000000bd05      0x454 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_str     0x000000000000aee9      0xf1a ./src/initialconfig.o
+                                       0xb85a (size before relaxing)
+ .debug_str     0x000000000000be03       0x2f ./src/loadcell.o
+                                       0x8726 (size before relaxing)
+ .debug_str     0x000000000000be32      0x454 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                                        0x88cb (size before relaxing)
- .debug_str     0x000000000000c159     0x15a5 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_str     0x000000000000c286     0x15a5 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
                                        0xa4ab (size before relaxing)
- .debug_str     0x000000000000d6fe      0x100 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_str     0x000000000000d82b      0x100 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
                                        0x9ac5 (size before relaxing)
- .debug_str     0x000000000000d7fe       0x2d /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_str     0x000000000000d92b       0x2d /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
                                        0x46ec (size before relaxing)
- .debug_str     0x000000000000d82b      0x783 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_str     0x000000000000d958      0x73b /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
                                        0xaae3 (size before relaxing)
- .debug_str     0x000000000000dfae      0x86b /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+ .debug_str     0x000000000000e093      0x86b /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
                                        0xbb73 (size before relaxing)
 
 .comment        0x0000000000000000       0x49
@@ -1418,17 +1433,17 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000080d       0x2d /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(__sys_write.o)
 
-.debug_frame    0x0000000000000000      0xb00
- .debug_frame   0x0000000000000000       0xec ./src/TP_FINAL_Cabrera_Caramuti.o
- .debug_frame   0x00000000000000ec      0x170 ./src/cr_startup_lpc175x_6x.o
- .debug_frame   0x000000000000025c       0xf4 ./src/initialconfig.o
- .debug_frame   0x0000000000000350       0xd0 ./src/loadcell.o
- .debug_frame   0x0000000000000420       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_frame   0x000000000000045c      0x16c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_frame   0x00000000000005c8       0xa0 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_frame   0x0000000000000668       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_frame   0x0000000000000688      0x174 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
- .debug_frame   0x00000000000007fc      0x304 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
+.debug_frame    0x0000000000000000      0xb7c
+ .debug_frame   0x0000000000000000      0x128 ./src/TP_FINAL_Cabrera_Caramuti.o
+ .debug_frame   0x0000000000000128      0x170 ./src/cr_startup_lpc175x_6x.o
+ .debug_frame   0x0000000000000298      0x134 ./src/initialconfig.o
+ .debug_frame   0x00000000000003cc       0xd0 ./src/loadcell.o
+ .debug_frame   0x000000000000049c       0x3c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_frame   0x00000000000004d8      0x16c /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_frame   0x0000000000000644       0xa0 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_frame   0x00000000000006e4       0x20 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_frame   0x0000000000000704      0x174 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+ .debug_frame   0x0000000000000878      0x304 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_uart.o)
 
 .debug_loc      0x0000000000000000     0x231f
  .debug_loc     0x0000000000000000      0x5a9 /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
@@ -1484,7 +1499,7 @@ DebugMon_Handler                                  ./src/cr_startup_lpc175x_6x.o
 EINT0_IRQHandler                                  ./src/TP_FINAL_Cabrera_Caramuti.o
 EINT1_IRQHandler                                  ./src/TP_FINAL_Cabrera_Caramuti.o
 EINT2_IRQHandler                                  ./src/TP_FINAL_Cabrera_Caramuti.o
-EINT3_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
+EINT3_IRQHandler                                  ./src/TP_FINAL_Cabrera_Caramuti.o
 ENET_IRQHandler                                   ./src/cr_startup_lpc175x_6x.o
 HardFault_Handler                                 ./src/cr_startup_lpc175x_6x.o
 I2C0_IRQHandler                                   ./src/cr_startup_lpc175x_6x.o
@@ -1514,11 +1529,12 @@ SystemCoreClockUpdate                             /home/francabrera/Desktop/Elec
 SystemInit                                        /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                                                   ./src/cr_startup_lpc175x_6x.o
 TIMER0_IRQHandler                                 ./src/cr_startup_lpc175x_6x.o
-TIMER1_IRQHandler                                 ./src/cr_startup_lpc175x_6x.o
+TIMER1_IRQHandler                                 ./src/TP_FINAL_Cabrera_Caramuti.o
 TIMER2_IRQHandler                                 ./src/cr_startup_lpc175x_6x.o
 TIMER3_IRQHandler                                 ./src/cr_startup_lpc175x_6x.o
 TIM_ClearIntCapturePending                        /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
 TIM_ClearIntPending                               /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                                                  ./src/TP_FINAL_Cabrera_Caramuti.o
 TIM_Cmd                                           /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
                                                   ./src/initialconfig.o
                                                   ./src/TP_FINAL_Cabrera_Caramuti.o
@@ -1534,6 +1550,7 @@ TIM_Init                                          /home/francabrera/Desktop/Elec
                                                   ./src/initialconfig.o
 TIM_ResetCounter                                  /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
 TIM_UpdateMatchValue                              /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                                                  ./src/TP_FINAL_Cabrera_Caramuti.o
 UART0_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
 UART1_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
 UART2_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
@@ -1728,6 +1745,7 @@ check_failed                                      /home/francabrera/Desktop/Elec
                                                   /home/francabrera/Desktop/Electrónica Digital III/TP_FINAL_LPC1769_CORTEXM3/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
 counter                                           ./src/TP_FINAL_Cabrera_Caramuti.o
 data_init                                         ./src/cr_startup_lpc175x_6x.o
+duty_cycle                                        ./src/TP_FINAL_Cabrera_Caramuti.o
 errno                                             /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(errno.o)
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(_cr_sbrk.o)
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(ftell.o)
@@ -1756,6 +1774,7 @@ getWeight                                         ./src/loadcell.o
                                                   ./src/TP_FINAL_Cabrera_Caramuti.o
 initialConfigurations                             ./src/initialconfig.o
                                                   ./src/TP_FINAL_Cabrera_Caramuti.o
+iterator                                          ./src/TP_FINAL_Cabrera_Caramuti.o
 level                                             ./src/TP_FINAL_Cabrera_Caramuti.o
 main                                              ./src/TP_FINAL_Cabrera_Caramuti.o
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_nohost.a(_cr__main.o)

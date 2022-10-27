@@ -20,7 +20,9 @@
 uint16_t weight = 0;
 uint16_t array[NUMSAMPLES];
 uint16_t tare = 0;
-uint8_t level = 7;
+uint8_t level = 1;
+uint32_t duty_cycle[3]={10,15,20}; //ESTOS VALORSS REPRESETNAN EL 5% 6,25% Y 10% DEL DUTYCYCLE
+uint8_t  iterator=0;
 
 void sendData(void);
 void finish(void);
@@ -35,8 +37,8 @@ int main(void) {
     while(1) {
     	if((weight-tare) > 910)
     		finish();
-    	if(4*weight < tare)
-    		stop(&tare);
+    	if(2*weight < tare)
+    		stop(&tare, &iterator);
     }
     return 0 ;
 
@@ -47,7 +49,8 @@ int main(void) {
  * Abrir el servo y empezar a cargar. Ir controlando la apertura del servo en función del peso actual y el peso final
  */
 void EINT0_IRQHandler(void){
-	start(tare);
+	start(tare, &iterator);
+
 	LPC_SC->EXTINT |= (START_LED);
 }
 
@@ -56,7 +59,7 @@ void EINT0_IRQHandler(void){
  *
  */
 void EINT1_IRQHandler(void){
-	stop(&tare);
+	stop(&tare, &iterator);
 	TIM_Cmd(LPC_TIM0, ENABLE);
 	weight = 0;
 	LPC_SC->EXTINT |= (STOP_LED);
@@ -68,6 +71,12 @@ void EINT1_IRQHandler(void){
 void EINT2_IRQHandler(void){
 	tare = getTare(weight);
 	LPC_SC->EXTINT |= (TARE_LED);
+}
+
+void EINT3_IRQHandler(void){
+	level = (uint8_t) (LPC_GPIO2->FIOPIN0>>4)&0xF;
+	level = ~(level) & 0xF;
+	LPC_GPIOINT->IO2IntClr |= (0xF<<4);
 }
 
 uint8_t counter = 0;
@@ -102,9 +111,37 @@ void sendData(void){
  */
 void finish(void){
 	TIM_Cmd(LPC_TIM0, DISABLE);
+	iterator = 0;
 	while(tare!=0){
 
 	}
+
 }
+
+void TIMER1_IRQHandler(void){
+	TIM_UpdateMatchValue(LPC_TIM1, 0, duty_cycle[iterator]);
+	if ((LPC_TIM1->IR & 0x1)==1){
+		LPC_GPIO2->FIOSET |= 1<<3;
+		TIM_ClearIntPending(LPC_TIM1, TIM_MR0_INT);
+	}
+	if (((LPC_TIM1->IR>>1) & 0x1)==1){
+		LPC_GPIO2->FIOCLR |= 1<<3;
+		TIM_ClearIntPending(LPC_TIM1, TIM_MR1_INT);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

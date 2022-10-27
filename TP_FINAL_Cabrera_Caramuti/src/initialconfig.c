@@ -9,16 +9,20 @@
 static void configEINT(void);
 static void configPIN(void);
 static void configADC(void);
-static void configTIMER(void);
+static void configTIMER0(void);
+static void configTIMER1(void);
 static void configUART(void);
+static void configGPIOInt(void);
 
 int initialConfigurations(void){
 
 	configEINT();
 	configPIN();
 	configADC();
-	configTIMER();
+	configTIMER0();
+	configTIMER1();
 	configUART();
+	configGPIOInt();
 
 	return 0;
 }
@@ -56,7 +60,7 @@ static void configADC(void){
 	NVIC_EnableIRQ(ADC_IRQn);
 }
 
-static void configTIMER(void){
+static void configTIMER0(void){
 	LPC_PINCON->PINSEL3 |= (15<<24);
 
 	TIM_TIMERCFG_Type configTim;
@@ -75,6 +79,31 @@ static void configTIMER(void){
 	TIM_Init(LPC_TIM0, TIM_TIMER_MODE, &configTim);
 	TIM_Cmd(LPC_TIM0, ENABLE);
 	NVIC_EnableIRQ(TIMER0_IRQn);
+}
+
+void configTIMER1(void){
+	TIM_TIMERCFG_Type timerCon;
+	timerCon.PrescaleOption =TIM_PRESCALE_TICKVAL;
+	timerCon.PrescaleValue =10000;//0.1*10^-3=(PS+1)*100*10^-6 =>PS=9999  tc se incrementa cada 0.1ms;
+
+	TIM_MATCHCFG_Type matchCon;
+	matchCon.ExtMatchOutputType =TIM_EXTMATCH_NOTHING;
+	matchCon.IntOnMatch=ENABLE;
+	matchCon.ResetOnMatch=DISABLE;
+	matchCon.StopOnMatch=DISABLE;
+	matchCon.MatchValue=10;
+	matchCon.MatchChannel=0;
+	TIM_ConfigMatch(LPC_TIM1, &matchCon); //configuro M1.0  con el valor de dc y que interrumpa
+	matchCon.MatchValue=200;//CON ESTO SETEO LA PRECUENCIA DE 50HZ
+	matchCon.ResetOnMatch=ENABLE;
+	matchCon.MatchChannel=1;
+	TIM_ConfigMatch(LPC_TIM1, &matchCon); //configuro M1.1 con 10 para que resetee el tc y que interrumpa
+
+	TIM_Init(LPC_TIM1,TIM_TIMER_MODE, &timerCon);
+	LPC_SC->PCLKSEL0|=(1<<4); //PONGO 01 EN EL PCLKSEL DEL TIMER1 (deja el cclk directo)
+
+	TIM_Cmd(LPC_TIM1, ENABLE);
+	NVIC_EnableIRQ(TIMER1_IRQn);
 
 }
 
@@ -89,4 +118,18 @@ static void configUART(void){
 
 	UART_Init(LPC_UART1, &configUART);
 	UART_TxCmd(LPC_UART1, ENABLE);
+}
+
+void configGPIOInt(void){
+	LPC_PINCON->PINMODE4 |= (0xFF<<4);
+	LPC_GPIO2->FIODIR &= ~(0XF<<4);
+	LPC_GPIOINT->IO2IntEnF |= (0xF<<4);
+	LPC_GPIOINT->IO2IntEnR |= (0XF<<4);
+	LPC_GPIOINT->IO2IntClr |= (0XF<<4);
+
+	LPC_PINCON->PINSEL4 &= ~(3<<6);
+	LPC_PINCON->PINMODE4 |= 1<<6; //SETEO P2.3 COMO SALIDA GPIO
+	LPC_GPIO2->FIODIR |= 1<<3;
+
+	NVIC_EnableIRQ(EINT3_IRQn);
 }

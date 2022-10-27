@@ -18,16 +18,24 @@
 
 
 uint16_t weight = 0;
+uint16_t array[NUMSAMPLES];
 uint16_t tare = 0;
+uint8_t level = 7;
 
+void sendData(void);
+void finish(void);
 
 int main(void) {
 
 	initialConfigurations();
 
+	for(int i=0; i<NUMSAMPLES; i++)
+		array[i] = 0;
 
     while(1) {
-    	if((weight-tare) > 1000 || (2*weight < tare))//Ver esta condición cuando la tara es relativamente alta respecto a la minima
+    	if((weight-tare) > 910)
+    		finish();
+    	if(4*weight < tare)
     		stop(&tare);
     }
     return 0 ;
@@ -45,10 +53,12 @@ void EINT0_IRQHandler(void){
 
 /*
  * STOP
- * Cerrar el servo y bajar la tara
+ *
  */
 void EINT1_IRQHandler(void){
 	stop(&tare);
+	TIM_Cmd(LPC_TIM0, ENABLE);
+	weight = 0;
 	LPC_SC->EXTINT |= (STOP_LED);
 }
 
@@ -60,20 +70,41 @@ void EINT2_IRQHandler(void){
 	LPC_SC->EXTINT |= (TARE_LED);
 }
 
-
+uint8_t counter = 0;
 void ADC_IRQHandler(void){
-	weight = getWeight();
+
+	array[counter] = getWeight();
+	uint32_t average = 0;
+	for(int i=0; i<NUMSAMPLES; i++)
+		average+=array[i];
+	counter++;
+	if(counter == NUMSAMPLES)
+		counter = 0;
+	weight = average>>2;
+	sendData();
+
 }
 
-
-
-void TIMER0_IRQHandler(void){
-	char weightToSend[5];
-	sprintf(weightToSend,"%4d\n",weight);
+void sendData(void){
+	char weightToSend[6];
+	sprintf(weightToSend,"W%4d\n",weight);
 	UART_Send(LPC_UART1, (uint8_t*)weightToSend, sizeof(weightToSend), BLOCKING);
-	char tareToSend[5];
-	sprintf(tareToSend,"%4d\n",tare);
+	char tareToSend[6];
+	sprintf(tareToSend,"T%4d\n",tare);
 	UART_Send(LPC_UART1, (uint8_t*)tareToSend, sizeof(tareToSend), BLOCKING);
-	TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT);
+	char levelToSend[6];
+	sprintf(levelToSend,"L%4d\n",level);
+	UART_Send(LPC_UART1, (uint8_t*)levelToSend, sizeof(levelToSend), BLOCKING);
 }
+
+/*
+ * CERRAR SERVO
+ */
+void finish(void){
+	TIM_Cmd(LPC_TIM0, DISABLE);
+	while(tare!=0){
+
+	}
+}
+
 

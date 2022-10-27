@@ -65,9 +65,9 @@ static void configTIMER(void){
 
 	TIM_MATCHCFG_Type configMatch;
 	configMatch.ExtMatchOutputType = TIM_EXTMATCH_TOGGLE;
-	configMatch.IntOnMatch = ENABLE;
+	configMatch.IntOnMatch = DISABLE;
 	configMatch.MatchChannel = 1;
-	configMatch.MatchValue = 9999;
+	configMatch.MatchValue = 6000;
 	configMatch.ResetOnMatch = ENABLE;
 	configMatch.StopOnMatch = DISABLE;
 

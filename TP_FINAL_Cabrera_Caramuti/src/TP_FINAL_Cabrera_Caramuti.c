@@ -21,7 +21,7 @@ uint16_t weight = 0;
 uint16_t array[NUMSAMPLES];
 uint16_t tare = 0;
 uint8_t level = 1;
-uint32_t duty_cycle[3]={10,15,20}; //ESTOS VALORSS REPRESETNAN EL 5% 6,25% Y 10% DEL DUTYCYCLE
+uint32_t duty_cycle[3]={20,15,16}; //ESTOS VALORSS REPRESETNAN EL 5% 6,25% Y 10% DEL DUTYCYCLE
 uint8_t  iterator=0;
 
 void sendData(void);
@@ -35,7 +35,7 @@ int main(void) {
 		array[i] = 0;
 
     while(1) {
-    	if((weight-tare) > 910)
+    	if((weight-tare) > 227)
     		finish();
     	if(2*weight < tare)
     		stop(&tare, &iterator);
@@ -74,9 +74,9 @@ void EINT2_IRQHandler(void){
 }
 
 void EINT3_IRQHandler(void){
-	level = (uint8_t) (LPC_GPIO2->FIOPIN0>>4)&0xF;
+	level = (uint8_t) (LPC_GPIO0->FIOPIN>>6)&0xF;
 	level = ~(level) & 0xF;
-	LPC_GPIOINT->IO2IntClr |= (0xF<<4);
+	LPC_GPIOINT->IO0IntClr |= (0xF<<6);
 }
 
 uint8_t counter = 0;

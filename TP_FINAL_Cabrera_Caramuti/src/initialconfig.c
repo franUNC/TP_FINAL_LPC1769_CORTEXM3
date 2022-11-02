@@ -121,11 +121,11 @@ static void configUART(void){
 }
 
 void configGPIOInt(void){
-	LPC_PINCON->PINMODE4 |= (0xFF<<4);
-	LPC_GPIO2->FIODIR &= ~(0XF<<4);
-	LPC_GPIOINT->IO2IntEnF |= (0xF<<4);
-	LPC_GPIOINT->IO2IntEnR |= (0XF<<4);
-	LPC_GPIOINT->IO2IntClr |= (0XF<<4);
+	LPC_PINCON->PINMODE0 |= (0xAA<<12);
+	LPC_GPIO0->FIODIR &= ~(0XF<<6);
+	LPC_GPIOINT->IO0IntEnF |= (0xF<<6);
+	LPC_GPIOINT->IO0IntEnR |= (0XF<<6);
+	LPC_GPIOINT->IO0IntClr |= (0XF<<6);
 
 	LPC_PINCON->PINSEL4 &= ~(3<<6);
 	LPC_PINCON->PINMODE4 |= 1<<6; //SETEO P2.3 COMO SALIDA GPIO

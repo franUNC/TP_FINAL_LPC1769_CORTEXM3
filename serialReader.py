@@ -6,7 +6,7 @@ scale = 435
 weight = 0
 tare = 0
 level = "0"
-maxload = 2 
+maxload = 0.5 
 
 def update():
 	global weight
@@ -55,10 +55,16 @@ def update():
 		load25.place(x=480,y=397)
 
 	if(len(level)==1):
-		load100.place_forget()
-		load75.place_forget()
-		load50.place_forget()
-		load25.place(x=480,y=397)
+		if(level=="1"):
+			load100.place_forget()
+			load75.place_forget()
+			load50.place_forget()
+			load25.place(x=480,y=397)
+		else:
+			load100.place_forget()
+			load75.place_forget()
+			load50.place_forget()
+			load25.place_forget()
 	
 	load = round(neto/maxload*100,2)
 	truckLoad.config(text=str(load)+"%")

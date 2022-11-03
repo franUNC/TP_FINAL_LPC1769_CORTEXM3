@@ -1,4 +1,4 @@
-../src/TP_FINAL_Cabrera_Caramuti.c:31:5:main	16	static
+../src/TP_FINAL_Cabrera_Caramuti.c:31:5:main	24	static
 ../src/TP_FINAL_Cabrera_Caramuti.c:52:6:EINT0_IRQHandler	8	static
 ../src/TP_FINAL_Cabrera_Caramuti.c:61:6:EINT1_IRQHandler	8	static
 ../src/TP_FINAL_Cabrera_Caramuti.c:71:6:EINT2_IRQHandler	8	static

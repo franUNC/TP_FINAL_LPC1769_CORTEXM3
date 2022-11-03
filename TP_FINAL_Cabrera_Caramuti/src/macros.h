@@ -10,6 +10,6 @@
 
 #define MINWEIGHT 100
 
-#define NUMSAMPLES 4
+#define NUMSAMPLES 8
 
 #endif /* MACROS_H_ */

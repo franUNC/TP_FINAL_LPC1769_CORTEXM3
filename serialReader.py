@@ -2,7 +2,7 @@ import serial
 from tkinter import *
 reader = serial.Serial("/dev/ttyUSB0",9600)
 characters = "\ bxn'"
-scale = 435
+scale = 600
 weight = 0
 tare = 0
 level = "0"
@@ -21,10 +21,10 @@ def update():
 	string = string.replace(d,"")
 	string = int(string)
 	if(d=="W"):
-		weight = round(string/scale,2)
+		weight = round(string/scale,1)
 		WEIGHT.config(text=(str(weight)+" [Kg]"))
 	elif(d=="T"):
-		tare = round(string/scale,2)
+		tare = round(string/scale,1)
 		TARE.config(text=(str(tare)+" [Kg]"))
 	elif(d=="L"):
 		level = str(bin(string))

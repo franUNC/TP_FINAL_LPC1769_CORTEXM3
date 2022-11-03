@@ -71,7 +71,7 @@ static void configTIMER0(void){
 	configMatch.ExtMatchOutputType = TIM_EXTMATCH_TOGGLE;
 	configMatch.IntOnMatch = DISABLE;
 	configMatch.MatchChannel = 1;
-	configMatch.MatchValue = 6000;
+	configMatch.MatchValue = 5000;
 	configMatch.ResetOnMatch = ENABLE;
 	configMatch.StopOnMatch = DISABLE;
 
@@ -83,24 +83,24 @@ static void configTIMER0(void){
 
 void configTIMER1(void){
 	TIM_TIMERCFG_Type timerCon;
-	timerCon.PrescaleOption =TIM_PRESCALE_TICKVAL;
-	timerCon.PrescaleValue =10000;//0.1*10^-3=(PS+1)*100*10^-6 =>PS=9999  tc se incrementa cada 0.1ms;
+	timerCon.PrescaleOption = TIM_PRESCALE_TICKVAL;
+	timerCon.PrescaleValue = 10000;//0.1*10^-3=(PS+1)*100*10^-6 =>PS=9999  tc se incrementa cada 0.1ms;
 
 	TIM_MATCHCFG_Type matchCon;
-	matchCon.ExtMatchOutputType =TIM_EXTMATCH_NOTHING;
-	matchCon.IntOnMatch=ENABLE;
-	matchCon.ResetOnMatch=DISABLE;
-	matchCon.StopOnMatch=DISABLE;
-	matchCon.MatchValue=10;
-	matchCon.MatchChannel=0;
+	matchCon.ExtMatchOutputType = TIM_EXTMATCH_NOTHING;
+	matchCon.IntOnMatch = ENABLE;
+	matchCon.ResetOnMatch = DISABLE;
+	matchCon.StopOnMatch = DISABLE;
+	matchCon.MatchValue = 10;
+	matchCon.MatchChannel = 0;
 	TIM_ConfigMatch(LPC_TIM1, &matchCon); //configuro M1.0  con el valor de dc y que interrumpa
-	matchCon.MatchValue=200;//CON ESTO SETEO LA PRECUENCIA DE 50HZ
-	matchCon.ResetOnMatch=ENABLE;
-	matchCon.MatchChannel=1;
+	matchCon.MatchValue = 200;//CON ESTO SETEO LA PRECUENCIA DE 50HZ
+	matchCon.ResetOnMatch = ENABLE;
+	matchCon.MatchChannel = 1;
 	TIM_ConfigMatch(LPC_TIM1, &matchCon); //configuro M1.1 con 10 para que resetee el tc y que interrumpa
 
 	TIM_Init(LPC_TIM1,TIM_TIMER_MODE, &timerCon);
-	LPC_SC->PCLKSEL0|=(1<<4); //PONGO 01 EN EL PCLKSEL DEL TIMER1 (deja el cclk directo)
+	LPC_SC->PCLKSEL0 |= (1<<4); //PONGO 01 EN EL PCLKSEL DEL TIMER1 (deja el cclk directo)
 
 	TIM_Cmd(LPC_TIM1, ENABLE);
 	NVIC_EnableIRQ(TIMER1_IRQn);

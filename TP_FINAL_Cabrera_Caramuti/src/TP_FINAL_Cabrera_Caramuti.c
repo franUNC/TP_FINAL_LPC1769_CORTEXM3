@@ -36,9 +36,9 @@ int main(void) {
 		array[i] = 0;
 
     while(1) {
-    	if((weight-tare) > 218 && tare!=0)
+    	if((weight-tare) > 280 && tare!=0)
     		finish();
-    	if(2*weight < tare)
+    	if(1.5*weight < tare)
     		stop(&tare, &iterator);
     }
     return 0 ;
@@ -102,7 +102,7 @@ void ADC_IRQHandler(void){
 	counter++;
 	if(counter == NUMSAMPLES)
 		counter = 0;
-	weight = average>>2;
+	weight = average>>3;
 	sendData();
 
 }
